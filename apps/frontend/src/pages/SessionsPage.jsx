@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../api.js";
 import { useAuth } from "../auth.jsx";
+import Brand from "../components/Brand.jsx";
 
 export default function SessionsPage() {
   const { token, logout } = useAuth();
@@ -37,7 +38,7 @@ export default function SessionsPage() {
   return (
     <div className="shell">
       <div className="topbar">
-        <div className="brand">Huginn</div>
+        <Brand size="compact" linkHome />
         <div className="row">
           <Link className="btn" to="/sessions/new">
             New session

@@ -7,6 +7,7 @@ import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { api } from "../api.js";
 import { useAuth } from "../auth.jsx";
+import Brand from "../components/Brand.jsx";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -86,15 +87,9 @@ export default function SessionDetailPage() {
   return (
     <div className="shell stack">
       <div className="topbar">
-        <div>
-          <div className="brand">{session.name}</div>
-          <div className="row">
-            <span className={`badge ${session.status}`}>{session.status}</span>
-            <span className="muted">{session.lead_count ?? leads.length} leads</span>
-          </div>
-        </div>
+        <Brand size="compact" linkHome />
         <div className="row">
-          <Link className="btn secondary" to="/">
+          <Link className="btn secondary" to="/sessions">
             Sessions
           </Link>
           <button type="button" onClick={exportCsv}>
@@ -103,6 +98,14 @@ export default function SessionDetailPage() {
           <button type="button" className="danger" onClick={erase}>
             Erase session
           </button>
+        </div>
+      </div>
+
+      <div className="stack" style={{ gap: "0.35rem", marginBottom: "0.5rem" }}>
+        <h1 className="page-title">{session.name}</h1>
+        <div className="row">
+          <span className={`badge ${session.status}`}>{session.status}</span>
+          <span className="muted">{session.lead_count ?? leads.length} leads</span>
         </div>
       </div>
 

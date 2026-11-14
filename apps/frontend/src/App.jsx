@@ -11,12 +11,19 @@ function PrivateRoute({ children }) {
   return children;
 }
 
+function PublicHome() {
+  const { isAuthenticated } = useAuth();
+  if (isAuthenticated) return <Navigate to="/sessions" replace />;
+  return <Navigate to="/login" replace />;
+}
+
 export default function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/" element={<PublicHome />} />
       <Route
-        path="/"
+        path="/sessions"
         element={
           <PrivateRoute>
             <SessionsPage />

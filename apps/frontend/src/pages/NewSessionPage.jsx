@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../api.js";
 import { useAuth } from "../auth.jsx";
+import Brand from "../components/Brand.jsx";
 
 export default function NewSessionPage() {
   const { token } = useAuth();
@@ -51,8 +52,8 @@ export default function NewSessionPage() {
   return (
     <div className="shell">
       <div className="topbar">
-        <div className="brand">Huginn</div>
-        <Link className="btn secondary" to="/">
+        <Brand size="compact" linkHome />
+        <Link className="btn secondary" to="/sessions">
           Back
         </Link>
       </div>
