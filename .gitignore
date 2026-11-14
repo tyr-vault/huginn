@@ -9,5 +9,6 @@
 .env
 coverage.out
 coverage.html
-huginn
+/huginn
+/bin/huginn
 leads.*
