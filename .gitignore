@@ -1,0 +1,13 @@
+/bin/
+/dist/
+/data/
+*.db
+*.csv
+*.json
+!testdata/**/*.json
+!internal/upstream/**/*.json
+.env
+coverage.out
+coverage.html
+huginn
+leads.*
