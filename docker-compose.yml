@@ -1,0 +1,18 @@
+services:
+  huginn:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      HUGINN_HTTP_ADDR: ":8080"
+      HUGINN_CONCURRENCY: "1"
+      HUGINN_DEPTH: "10"
+      HUGINN_LANG: "en"
+      HUGINN_REQUEST_PACE_MS: "500"
+      HUGINN_DATA_DIR: "/data"
+    volumes:
+      - huginn-data:/data
+    restart: unless-stopped
+
+volumes:
+  huginn-data:
