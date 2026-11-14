@@ -4,9 +4,11 @@ go 1.27.3
 
 require (
 	github.com/PuerkitoBio/goquery v1.12.0
+	github.com/golang-jwt/jwt/v5 v5.2.2
 	github.com/google/open-location-code/go v0.0.0-20250415120251-fa6d7f9d4765
 	github.com/google/uuid v1.6.0
 	github.com/gosom/scrapemate v1.4.1
+	github.com/jackc/pgx/v5 v5.7.4
 	github.com/mcnijman/go-emailaddress v1.1.1
 	github.com/mxschmitt/playwright-go v0.6100.0
 	github.com/stretchr/testify v1.12.1
@@ -39,6 +41,9 @@ require (
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/google/gopacket v1.1.19 // indirect
 	github.com/gosom/kit v0.0.0-20230309082109-543b32ac686a // indirect
+	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
+	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/klauspost/compress v1.18.5 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.16 // indirect
