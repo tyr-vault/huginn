@@ -1,3 +1,4 @@
+# Legacy single-binary image. Prefer docker compose (Dockerfile.backend / scrape-engine / frontend).
 FROM golang:1.27-bookworm AS build
 
 WORKDIR /src
@@ -10,14 +11,6 @@ FROM mcr.microsoft.com/playwright:v1.49.0-jammy
 
 WORKDIR /app
 COPY --from=build /out/huginn /usr/local/bin/huginn
-COPY .env.example /app/.env.example
-
-ENV HUGINN_HTTP_ADDR=:8080 \
-    HUGINN_CONCURRENCY=1 \
-    HUGINN_DATA_DIR=/data
-
-VOLUME ["/data"]
-EXPOSE 8080
 
 ENTRYPOINT ["huginn"]
-CMD ["serve", "--addr", ":8080"]
+CMD ["--help"]

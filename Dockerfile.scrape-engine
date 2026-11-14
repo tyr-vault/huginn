@@ -1,0 +1,18 @@
+FROM golang:1.27-bookworm AS build
+
+WORKDIR /src
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN CGO_ENABLED=0 go build -o /out/scrape-engine ./cmd/scrape-engine
+
+FROM mcr.microsoft.com/playwright:v1.49.0-jammy
+
+WORKDIR /app
+COPY --from=build /out/scrape-engine /usr/local/bin/scrape-engine
+
+ENV SCRAPE_ENGINE_ADDR=:8090 \
+    HUGINN_CONCURRENCY=1
+
+EXPOSE 8090
+ENTRYPOINT ["scrape-engine"]

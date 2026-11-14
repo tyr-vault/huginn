@@ -3,12 +3,12 @@
 /data/
 *.db
 *.csv
-*.json
-!testdata/**/*.json
-!internal/upstream/**/*.json
 .env
 coverage.out
 coverage.html
 /huginn
 /bin/huginn
 leads.*
+apps/frontend/node_modules/
+apps/frontend/dist/
+*.log
